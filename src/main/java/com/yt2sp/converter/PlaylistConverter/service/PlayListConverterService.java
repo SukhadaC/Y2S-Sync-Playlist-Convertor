@@ -1,5 +1,6 @@
 package com.yt2sp.converter.PlaylistConverter.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.yt2sp.converter.PlaylistConverter.adapter.SpotifyAPIAdapter;
 import com.yt2sp.converter.PlaylistConverter.adapter.YoutubeAPIAdapter;
 import com.yt2sp.converter.PlaylistConverter.models.Playlist;
@@ -15,10 +16,12 @@ public class PlayListConverterService {
     @Autowired
     private SpotifyAPIAdapter spotifyAPIAdapter;
 
-    public void  convertYoutubeToSpotify(long playlistId) {
+    public Playlist  convertYoutubeToSpotify(String  playlistId) throws JsonProcessingException {
 
-        youtubeAPIAdapter.fetchPlaylist(playlistId);
+       Playlist playlist= youtubeAPIAdapter.fetchPlaylist(playlistId);
 
+        spotifyAPIAdapter.createPlayList(playlist);
 
+    return playlist;
     }
 }

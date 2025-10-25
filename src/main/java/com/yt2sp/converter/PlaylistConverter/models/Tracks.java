@@ -5,13 +5,12 @@ import lombok.Data;
 @Data
 public class Tracks {
 
-    private String id;
+    private String videoId;
 
     private String title;
 
     private String artist;
-
-    private String album;
-    private long duration;
     private String sourceURL;
+
+
 }

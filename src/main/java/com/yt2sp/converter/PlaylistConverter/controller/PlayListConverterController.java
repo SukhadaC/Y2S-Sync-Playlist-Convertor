@@ -1,5 +1,6 @@
 package com.yt2sp.converter.PlaylistConverter.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.yt2sp.converter.PlaylistConverter.models.ConversionStatus;
 import com.yt2sp.converter.PlaylistConverter.models.Playlist;
 import com.yt2sp.converter.PlaylistConverter.service.PlayListConverterService;
@@ -27,9 +28,8 @@ public class PlayListConverterController {
 
 
     @PostMapping("/yt-2-spotify")
-    public ResponseEntity<Playlist> convertYt2SpoityfyPlaylist(long playlistId)
-    {
-        playlistConvertorService.convertYoutubeToSpotify(playlistId);
+    public ResponseEntity<Playlist> convertYt2SpoityfyPlaylist(String  playlistId) throws JsonProcessingException {
+        Playlist playlist=playlistConvertorService.convertYoutubeToSpotify(playlistId);
 
         return null;
     }
