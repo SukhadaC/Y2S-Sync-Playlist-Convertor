@@ -8,13 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/convert")
 public class PlayListConverterController {
 
 
@@ -24,6 +20,21 @@ public class PlayListConverterController {
     public PlayListConverterController(PlayListConverterService playListConverterService)
     {
         this.playlistConvertorService=playListConverterService;
+    }
+
+
+
+     @GetMapping("/")
+     public String returnHome()
+     {
+         return "homepage";
+     }
+
+
+    @GetMapping("/login")
+    public String home()
+    {
+        return "login";
     }
 
 

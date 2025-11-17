@@ -20,7 +20,7 @@ public class PlayListConverterService {
 
        Playlist playlist= youtubeAPIAdapter.fetchPlaylist(playlistId);
 
-        spotifyAPIAdapter.createPlayList(playlist);
+        Playlist spotifyPlsyList=spotifyAPIAdapter.createPlayList(playlist);
 
     return playlist;
     }

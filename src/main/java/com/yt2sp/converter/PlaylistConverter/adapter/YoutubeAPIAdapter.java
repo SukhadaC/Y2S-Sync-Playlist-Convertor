@@ -6,11 +6,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yt2sp.converter.PlaylistConverter.models.Playlist;
 import com.yt2sp.converter.PlaylistConverter.models.Tracks;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class YoutubeAPIAdapter {
 
     @Value("${youtube.api.key}")
@@ -26,7 +28,7 @@ public class YoutubeAPIAdapter {
 
        ObjectMapper mapper=new ObjectMapper();
 
-       JsonNode root=mapper.readTree(response);
+        JsonNode root=mapper.readTree(response);
 
 
        Playlist playlist=new Playlist();
